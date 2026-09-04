@@ -14,7 +14,7 @@ export default function ContactCTA() {
           Have a Question, or Ready to Order?
         </h2>
         <p className="mt-4 max-w-lg mx-auto text-ivory/70">
-          Browse the full collection or message us directly on WhatsApp — we're happy to help
+          Browse the full collection or message us directly on WhatsApp — we&apos;re happy to help
           you find the right products.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">

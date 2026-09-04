@@ -34,7 +34,7 @@ export default function ReviewForm() {
       <div className="card p-6 text-center max-w-lg mx-auto">
         <p className="font-display text-lg text-mehndi-800">Thank you for your review!</p>
         <p className="mt-1 text-sm text-brown-500">
-          It's been submitted and will appear here once approved by our team.
+          It&apos;s been submitted and will appear here once approved by our team.
         </p>
       </div>
     );
