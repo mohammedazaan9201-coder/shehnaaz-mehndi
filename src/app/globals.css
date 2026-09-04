@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory text-ink font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.gold.400");
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-gold-600;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-mehndi-700 text-ivory shadow-soft hover:bg-mehndi-800 active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply btn bg-transparent text-mehndi-700 border border-mehndi-700/30 hover:border-mehndi-700 hover:bg-mehndi-50 active:scale-[0.98];
+  }
+  .btn-gold {
+    @apply btn bg-gold-400 text-brown-800 shadow-soft hover:bg-gold-300 active:scale-[0.98];
+  }
+  .card {
+    @apply rounded-xl2 bg-ivory-card shadow-card border border-brown-100/50;
+  }
+  .input-field {
+    @apply w-full rounded-xl border border-brown-200 bg-ivory-card px-4 py-3 text-sm text-ink placeholder:text-brown-300 focus:border-mehndi-500 focus:outline-none focus:ring-2 focus:ring-mehndi-100 transition-colors;
+  }
+  .label-field {
+    @apply mb-1.5 block text-sm font-medium text-brown-700;
+  }
+}

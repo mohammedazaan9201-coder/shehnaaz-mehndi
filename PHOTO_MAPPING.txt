@@ -1,0 +1,19 @@
+REAL PHOTO MAPPING
+
+p-instant-nail-polish-henna: instant-nail-polish-henna.jpeg
+p-instant-nail-polish-henna-2: instant-nail-polish-henna.jpeg
+p-dipper-instant-henna: dipper-instant-henna.jpeg
+p-dipper-instant-henna-2: dipper-instant-henna.jpeg
+p-lip-balm-strawberry: lip-balms.jpeg
+p-lip-balm-beetroot: lip-balms.jpeg
+p-aftercare-oil: after-care-oil.jpeg
+p-wax-powder: wax-powder.jpeg
+p-ubtan: ubtan-powder.jpeg
+p-hair-powder-black: herbal-hair-henna.jpeg
+p-hair-powder-brown: herbal-hair-henna.jpeg
+p-hair-powder-burgundy: herbal-hair-henna.jpeg
+p-soap-anti-acne: anti-acne-haldi-chandan-soap.jpeg
+p-soap-skin-lightening: skin-lightening-soap.jpeg
+p-soap-menthol: menthol-soap.jpeg
+
+Products still using placeholders include Mehndi products, Other Products, most stencil variants use the shared stencil photo, and soap products without an exact photo. No product names/prices were changed.

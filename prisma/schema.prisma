@@ -1,0 +1,166 @@
+// Production database schema for Shehnaaz's Mehndi
+// Swap the JSON dev store (src/lib/db.ts) for Prisma + Postgres by:
+// 1. `npm i` (prisma is already a devDependency)
+// 2. Set DATABASE_URL in .env
+// 3. `npx prisma migrate dev --name init`
+// 4. Replace the functions in src/lib/db.ts with Prisma client calls
+//    (the function signatures are already shaped to match these models)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PROCESSING
+  SHIPPED
+  READY_FOR_PICKUP
+  DELIVERED
+  CANCELLED
+}
+
+enum DeliveryMethod {
+  HOME_DELIVERY
+  STORE_PICKUP
+}
+
+enum PaymentMethod {
+  UPI
+  BANK_TRANSFER
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String
+  slug      String    @unique
+  blurb     String?
+  sortOrder Int       @default(0)
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Product {
+  id            String      @id @default(cuid())
+  name          String
+  slug          String      @unique
+  description   String
+  price         Int // stored in paise-free rupees (whole number)
+  compareAtPrice Int?
+  images        ProductImage[]
+  categoryId    String
+  category      Category    @relation(fields: [categoryId], references: [id])
+  variantLabel  String? // e.g. "12 pcs", "2 pieces", "Medium"
+  stock         Int         @default(0)
+  isFeatured    Boolean     @default(false)
+  isActive      Boolean     @default(true)
+  reviews       Review[]
+  orderItems    OrderItem[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([categoryId])
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  url       String
+  altText   String?
+  sortOrder Int     @default(0)
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  productId  String?
+  product    Product? @relation(fields: [productId], references: [id])
+  customerName String
+  rating     Int // 1-5
+  comment    String
+  isApproved Boolean  @default(false)
+  createdAt  DateTime @default(now())
+}
+
+model Customer {
+  id        String   @id @default(cuid())
+  fullName  String
+  phone     String
+  email     String?
+  addresses Address[]
+  orders    Order[]
+  createdAt DateTime @default(now())
+}
+
+model Address {
+  id         String    @id @default(cuid())
+  customerId String
+  customer   Customer  @relation(fields: [customerId], references: [id])
+  fullAddress String
+  city       String
+  state      String
+  pincode    String
+  orders     Order[]
+}
+
+model Order {
+  id              String         @id @default(cuid())
+  orderNumber     String         @unique // e.g. SM-20260824-0001
+  customerId      String?
+  customer        Customer?      @relation(fields: [customerId], references: [id])
+  fullName        String
+  phone           String
+  email           String?
+  addressId       String?
+  address         Address?       @relation(fields: [addressId], references: [id])
+  city            String?
+  state           String?
+  pincode         String?
+  deliveryMethod  DeliveryMethod
+  paymentMethod   PaymentMethod
+  transactionId   String?
+  paymentScreenshotUrl String?
+  items           OrderItem[]
+  subtotal        Int
+  total           Int
+  status          OrderStatus    @default(PENDING)
+  statusHistory   OrderStatusEvent[]
+  notes           String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  name      String // snapshot at time of order
+  variant   String?
+  price     Int // snapshot price
+  quantity  Int
+}
+
+model OrderStatusEvent {
+  id        String      @id @default(cuid())
+  orderId   String
+  order     Order       @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  status    OrderStatus
+  note      String?
+  createdAt DateTime    @default(now())
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  createdAt    DateTime @default(now())
+}
