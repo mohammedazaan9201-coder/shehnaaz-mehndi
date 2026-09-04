@@ -25,7 +25,6 @@ function ensureFile(file: string, fallback: unknown) {
 }
 
 function readJson<T>(file: string, fallback: T): T {
-  ensureFile(file, fallback);
   try {
     return JSON.parse(fs.readFileSync(file, "utf-8"));
   } catch {
