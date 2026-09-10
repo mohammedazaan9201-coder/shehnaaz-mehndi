@@ -153,27 +153,13 @@ export const seedProducts: Product[] = [
 
   // Instant Products
   {
-    id: "p-instant-nail-polish-henna",
-    name: "Instant Nail Polish Henna",
-    slug: "instant-nail-polish-henna",
-    description:
-      "Instant henna in a nail-polish-style applicator for quick, mess-free colour on nails. Available in Red, Maroon and Brown.",
-    price: 100,
-    images: ["/products/real/instant-nail-polish-henna-real.jpg"],
-    categorySlug: "instant-products",
-    variantLabel: "Red / Maroon / Brown",
-    stock: 60,
-    isFeatured: true,
-    isActive: true,
-  },
-  {
-    id: "p-instant-nail-polish-henna-2",
+  id: "p-instant-nail-polish-henna-2",
     name: "Instant Nail Polish Henna (2 pieces)",
     slug: "instant-nail-polish-henna-2-pieces",
     description:
       "Two instant nail-polish henna applicators, so you always have a backup colour on hand.",
     price: 170,
-    images: ["/products/real/instant-nail-polish-henna.jpeg"],
+    images: ["/products/real/instant-nail-polish-henna-real.jpg"],
     categorySlug: "instant-products",
     variantLabel: "2 pieces",
     stock: 40,
