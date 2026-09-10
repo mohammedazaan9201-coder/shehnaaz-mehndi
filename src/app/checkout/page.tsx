@@ -55,7 +55,7 @@ export default function CheckoutPage() {
     reader.readAsDataURL(file);
   }
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
 
@@ -93,31 +93,55 @@ export default function CheckoutPage() {
           ? `${fullAddress}, ${city}, ${state} - ${pincode}`
           : "Store Pickup";
 
-      const message = `🌿 *New Order — Shehnaaz's Mehndi*
+      const message = `🌿 *NEW ORDER — SHEHNAAZ'S MEHNDI*
 
-*Order No:* ${orderNumber}
+*Order Number:* ${orderNumber}
 
-*Customer Details*
+━━━━━━━━━━━━━━━━━━
+*CUSTOMER DETAILS*
+━━━━━━━━━━━━━━━━━━
 Name: ${fullName}
 Phone: ${phone}
 ${email ? `Email: ${email}\n` : ""}
-*Delivery Method:* ${
+━━━━━━━━━━━━━━━━━━
+*DELIVERY DETAILS*
+━━━━━━━━━━━━━━━━━━
+Method: ${
         deliveryMethod === "HOME_DELIVERY"
           ? "Home Delivery"
           : "Store Pickup"
       }
+${
+  deliveryMethod === "HOME_DELIVERY"
+    ? `Address: ${fullAddress}
+City: ${city}
+State: ${state}
+Pincode: ${pincode}`
+    : ""
+}
 
-*Delivery Address*
-${addressText}
-
-*Order Details*
+━━━━━━━━━━━━━━━━━━
+*ORDER DETAILS*
+━━━━━━━━━━━━━━━━━━
 ${itemsText}
 
-*Total: ₹${subtotal}*
+━━━━━━━━━━━━━━━━━━
+*TOTAL: ₹${subtotal}*
+━━━━━━━━━━━━━━━━━━
 
-*Payment Method:* ${paymentMethod}
-${transactionId ? `Transaction ID: ${transactionId}\n` : ""}
-Please confirm my order. Thank you!`;
+*PAYMENT METHOD:* ${paymentMethod}
+${
+  transactionId
+    ? `*Transaction ID:* ${transactionId}\n`
+    : ""
+}
+Please confirm my order and share the ${
+        paymentMethod === "UPI"
+          ? "UPI payment details"
+          : "bank transfer details"
+      }.
+
+Thank you! 🌿`;
 
       const whatsappUrl = `https://wa.me/${whatsapp}?text=${encodeURIComponent(
         message
@@ -535,7 +559,7 @@ Please confirm my order. Thank you!`;
           </button>
 
           <p className="mt-3 text-xs text-brown-400 text-center">
-            Your order details will open in WhatsApp for confirmation.
+            Your complete order details will open in WhatsApp for confirmation.
           </p>
         </div>
       </form>
