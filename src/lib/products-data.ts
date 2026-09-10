@@ -133,7 +133,7 @@ export const seedProducts: Product[] = [
     description:
       "A red-toned instant henna cone in the Pakistani style, known for its warm reddish stain and smooth, fast-flowing paste.",
     price: 40,
-    images: ["/products/mehndi-cones.svg"],
+  images: ["/products/real/red-pakistani-mehndi-real.jpg"],
     categorySlug: "mehndi-cones",
     stock: 70,
     isActive: true,
@@ -473,7 +473,7 @@ export const seedProducts: Product[] = [
     slug: "goat-milk-soap",
     description: "A creamy, moisturising handmade soap enriched with goat milk.",
     price: 200,
-    images: ["/products/real/goat-milk-soap-real.jpg"],
+    images: ["/products/real/goat-milk-soap-real.png"],
     categorySlug: "skincare",
     stock: 40,
     isActive: true,
