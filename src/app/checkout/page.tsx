@@ -1,3 +1,4 @@
+```tsx
 "use client";
 
 import { useState, useEffect } from "react";
@@ -88,11 +89,6 @@ export default function CheckoutPage() {
         )
         .join("\n");
 
-      const addressText =
-        deliveryMethod === "HOME_DELIVERY"
-          ? `${fullAddress}, ${city}, ${state} - ${pincode}`
-          : "Store Pickup";
-
       const message = `🌿 *NEW ORDER — SHEHNAAZ'S MEHNDI*
 
 *Order Number:* ${orderNumber}
@@ -116,8 +112,13 @@ ${
     ? `Address: ${fullAddress}
 City: ${city}
 State: ${state}
-Pincode: ${pincode}`
-    : ""
+Pincode: ${pincode}
+
+Delivery: Rapido Parcel
+Delivery charge: Paid separately by customer
+Fare: To be confirmed before dispatch`
+    : `Pickup: Shehnaaz's Mehndi
+Delivery charge: None`
 }
 
 ━━━━━━━━━━━━━━━━━━
@@ -260,7 +261,7 @@ Thank you! 🌿`;
                   </p>
 
                   <p className="text-xs text-brown-500 mt-0.5">
-                    Delivered to your address.
+                    Delivered via Rapido Parcel. Delivery charge depends on your location and is paid separately. Exact fare will be confirmed before dispatch. Same-day delivery is unavailable.
                   </p>
                 </div>
               </label>
@@ -289,7 +290,7 @@ Thank you! 🌿`;
                   </p>
 
                   <p className="text-xs text-brown-500 mt-0.5">
-                    Collect in Hyderabad, we’ll confirm when ready.
+                    Pick up from Shehnaaz’s Mehndi. No delivery charge.
                   </p>
                 </div>
               </label>
@@ -566,3 +567,4 @@ Thank you! 🌿`;
     </div>
   );
 }
+```

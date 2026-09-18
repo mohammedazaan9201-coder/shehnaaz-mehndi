@@ -39,13 +39,6 @@ export const categories: Category[] = [
   },
 ];
 
-// NOTE: image paths point at /products/<slug>.jpg — drop real product photography
-// into /public/products/ using these filenames (see README "Adding product photos").
-//
-// This array is the ONE-TIME SEED for the persisted product store (data/products.json,
-// managed in src/lib/db.ts). After first run, the admin panel's product CRUD reads and
-// writes data/products.json — editing stock/price/etc. there, not here. To reset the
-// catalog back to this seed data, delete data/products.json and restart the dev server.
 export const seedProducts: Product[] = [
   // Mehndi Cones
   {
@@ -63,19 +56,6 @@ export const seedProducts: Product[] = [
     isActive: true,
   },
   {
-    id: "p-natural-box-2",
-    name: "Natural Henna Cone Box (2 boxes)",
-    slug: "natural-henna-cone-box-2-boxes",
-    description:
-      "Two boxes of our natural henna cones — enough to share, or to keep your festive season fully stocked. Each cone is hand-rolled for smooth, even application.",
-    price: 400,
-    images: ["/products/real/natural-cone-1.jpg"],
-    categorySlug: "mehndi-cones",
-    variantLabel: "2 boxes",
-    stock: 30,
-    isActive: true,
-  },
-  {
     id: "p-instant-box-12",
     name: "Instant Henna Cone Box (12 pcs)",
     slug: "instant-henna-cone-box-12",
@@ -86,19 +66,6 @@ export const seedProducts: Product[] = [
     categorySlug: "mehndi-cones",
     variantLabel: "12 pcs",
     stock: 40,
-    isActive: true,
-  },
-  {
-    id: "p-instant-box-2",
-    name: "Instant Henna Cone Box (2 boxes)",
-    slug: "instant-henna-cone-box-2-boxes",
-    description:
-      "Two boxes of our fast-darkening instant henna cones, for households and small mehndi setups that go through cones quickly.",
-    price: 400,
-    images: ["/products/real/instant-mehndi-box-1.jpg"],
-    categorySlug: "mehndi-cones",
-    variantLabel: "2 boxes",
-    stock: 28,
     isActive: true,
   },
   {
@@ -133,7 +100,7 @@ export const seedProducts: Product[] = [
     description:
       "A red-toned instant henna cone in the Pakistani style, known for its warm reddish stain and smooth, fast-flowing paste.",
     price: 40,
-  images: ["/products/real/red-pakistani-mehndi-real.jpg"],
+    images: ["/products/real/red-pakistani-mehndi-real.jpg"],
     categorySlug: "mehndi-cones",
     stock: 70,
     isActive: true,
@@ -151,59 +118,60 @@ export const seedProducts: Product[] = [
     isActive: true,
   },
 
+  // Instant Products
   {
-  id: "p-instant-nail-polish-henna-red",
-  name: "Instant Nail Polish Henna — Red",
-  slug: "instant-nail-polish-henna-red",
-  description:
-    "Instant nail-polish-style henna applicator for quick, mess-free red colour on nails.",
-  price: 100,
-  images: ["/products/real/instant-nail-polish-henna-real.jpg"],
-  categorySlug: "instant-products",
-  variantLabel: "Red",
-  stock: 60,
-  isFeatured: true,
-  isActive: true,
-},
-{
-  id: "p-instant-nail-polish-henna-maroon",
-  name: "Instant Nail Polish Henna — Maroon",
-  slug: "instant-nail-polish-henna-maroon",
-  description:
-    "Instant nail-polish-style henna applicator for quick, mess-free maroon colour on nails.",
-  price: 100,
-  images: ["/products/real/instant-nail-polish-henna-real.jpg"],
-  categorySlug: "instant-products",
-  variantLabel: "Maroon",
-  stock: 60,
-  isActive: true,
-},
-{
-  id: "p-instant-nail-polish-henna-brown",
-  name: "Instant Nail Polish Henna — Brown",
-  slug: "instant-nail-polish-henna-brown",
-  description:
-    "Instant nail-polish-style henna applicator for quick, mess-free brown colour on nails.",
-  price: 100,
-  images: ["/products/real/instant-nail-polish-henna-real.jpg"],
-  categorySlug: "instant-products",
-  variantLabel: "Brown",
-  stock: 60,
-  isActive: true,
-},
-{
-  id: "p-instant-nail-polish-henna-2",
-  name: "Instant Nail Polish Henna (2 pieces)",
-  slug: "instant-nail-polish-henna-2-pieces",
-  description:
-    "Two instant nail-polish henna applicators, so you always have a backup colour on hand.",
-  price: 170,
-  images: ["/products/real/instant-nail-polish-henna-real.jpg"],
-  categorySlug: "instant-products",
-  variantLabel: "2 pieces",
-  stock: 40,
-  isActive: true,
-},
+    id: "p-instant-nail-polish-henna-red",
+    name: "Instant Nail Polish Henna — Red",
+    slug: "instant-nail-polish-henna-red",
+    description:
+      "Instant nail-polish-style henna applicator for quick, mess-free red colour on nails.",
+    price: 100,
+    images: ["/products/real/instant-nail-polish-henna-real.jpg"],
+    categorySlug: "instant-products",
+    variantLabel: "Red",
+    stock: 60,
+    isFeatured: true,
+    isActive: true,
+  },
+  {
+    id: "p-instant-nail-polish-henna-maroon",
+    name: "Instant Nail Polish Henna — Maroon",
+    slug: "instant-nail-polish-henna-maroon",
+    description:
+      "Instant nail-polish-style henna applicator for quick, mess-free maroon colour on nails.",
+    price: 100,
+    images: ["/products/real/instant-nail-polish-henna-real.jpg"],
+    categorySlug: "instant-products",
+    variantLabel: "Maroon",
+    stock: 60,
+    isActive: true,
+  },
+  {
+    id: "p-instant-nail-polish-henna-brown",
+    name: "Instant Nail Polish Henna — Brown",
+    slug: "instant-nail-polish-henna-brown",
+    description:
+      "Instant nail-polish-style henna applicator for quick, mess-free brown colour on nails.",
+    price: 100,
+    images: ["/products/real/instant-nail-polish-henna-real.jpg"],
+    categorySlug: "instant-products",
+    variantLabel: "Brown",
+    stock: 60,
+    isActive: true,
+  },
+  {
+    id: "p-instant-nail-polish-henna-2",
+    name: "Instant Nail Polish Henna (2 pieces)",
+    slug: "instant-nail-polish-henna-2-pieces",
+    description:
+      "Two instant nail-polish henna applicators, so you always have a backup colour on hand.",
+    price: 170,
+    images: ["/products/real/instant-nail-polish-henna-real.jpg"],
+    categorySlug: "instant-products",
+    variantLabel: "2 pieces",
+    stock: 40,
+    isActive: true,
+  },
   {
     id: "p-dipper-instant-henna",
     name: "Dipper Instant Henna",
@@ -216,18 +184,6 @@ export const seedProducts: Product[] = [
     stock: 55,
     isActive: true,
   },
-  {
-    id: "p-dipper-instant-henna-2",
-    name: "Dipper Instant Henna (2 pieces)",
-    slug: "dipper-instant-henna-2-pieces",
-    description: "Two dipper-style instant henna bottles for everyday quick colour.",
-    price: 120,
-    images: ["/products/real/dipper-instant-henna.jpeg"],
-    categorySlug: "instant-products",
-    variantLabel: "2 pieces",
-    stock: 35,
-    isActive: true,
-  },
 
   // Stencils
   {
@@ -237,7 +193,7 @@ export const seedProducts: Product[] = [
     description:
       "A reusable medium-sized mehndi stencil for quick, even designs on the back of the hand — great for beginners and busy mornings.",
     price: 100,
-    images: ["/products/real/stencils.jpeg"],
+    images: ["/products/real/real-p-stencil-medium.jpg"],
     categorySlug: "stencils",
     variantLabel: "Medium",
     stock: 50,
@@ -247,9 +203,10 @@ export const seedProducts: Product[] = [
     id: "p-stencil-medium-2",
     name: "Mehndi Stencil — Medium (2 pieces)",
     slug: "mehndi-stencil-medium-2-pieces",
-    description: "Two medium stencils so you can design both hands together.",
+    description:
+      "Two medium stencils so you can design both hands together.",
     price: 180,
-    images: ["/products/real/stencils.jpeg"],
+    images: ["/products/real/real-p-stencil-medium-2.jpg"],
     categorySlug: "stencils",
     variantLabel: "Medium x2",
     stock: 40,
@@ -259,9 +216,10 @@ export const seedProducts: Product[] = [
     id: "p-stencil-large",
     name: "Mehndi Stencil — Large",
     slug: "mehndi-stencil-large",
-    description: "A large stencil for a fuller, more elaborate coverage across the palm and hand.",
+    description:
+      "A large stencil for a fuller, more elaborate coverage across the palm and hand.",
     price: 120,
-    images: ["/products/real/stencils.jpeg"],
+    images: ["/products/real/real-p-stencil-large.jpg"],
     categorySlug: "stencils",
     variantLabel: "Large",
     stock: 45,
@@ -271,9 +229,10 @@ export const seedProducts: Product[] = [
     id: "p-stencil-large-2",
     name: "Mehndi Stencil — Large (2 pieces)",
     slug: "mehndi-stencil-large-2-pieces",
-    description: "Two large stencils, for both hands or for sharing.",
+    description:
+      "Two large stencils, for both hands or for sharing.",
     price: 200,
-    images: ["/products/real/stencils.jpeg"],
+    images: ["/products/real/real-p-stencil-large-2.jpg"],
     categorySlug: "stencils",
     variantLabel: "Large x2",
     stock: 30,
@@ -283,9 +242,10 @@ export const seedProducts: Product[] = [
     id: "p-stencil-fingers",
     name: "Mehndi Stencil — Fingers",
     slug: "mehndi-stencil-fingers",
-    description: "Finger-only stencils for delicate detailing without covering the whole hand.",
+    description:
+      "Finger-only stencils for delicate detailing without covering the whole hand.",
     price: 60,
-    images: ["/products/real/stencils.jpeg"],
+    images: ["/products/real/real-p-stencil-fingers.jpg"],
     categorySlug: "stencils",
     variantLabel: "Fingers",
     stock: 55,
@@ -295,9 +255,10 @@ export const seedProducts: Product[] = [
     id: "p-stencil-fingers-2",
     name: "Mehndi Stencil — Fingers (2 pieces)",
     slug: "mehndi-stencil-fingers-2-pieces",
-    description: "Two finger stencils for matching detail on both hands.",
+    description:
+      "Two finger stencils for matching detail on both hands.",
     price: 100,
-    images: ["/products/real/stencils.jpeg"],
+    images: ["/products/real/real-p-stencil-fingers-2.jpg"],
     categorySlug: "stencils",
     variantLabel: "Fingers x2",
     stock: 40,
@@ -307,9 +268,10 @@ export const seedProducts: Product[] = [
     id: "p-stencil-kids",
     name: "Mehndi Stencil — Kids",
     slug: "mehndi-stencil-kids",
-    description: "Simple, fun stencil designs sized for little hands.",
+    description:
+      "Simple, fun stencil designs sized for little hands.",
     price: 40,
-    images: ["/products/real/stencils.jpeg"],
+    images: ["/products/real/real-p-stencil-kids.jpg"],
     categorySlug: "stencils",
     variantLabel: "Kids",
     stock: 60,
@@ -319,9 +281,10 @@ export const seedProducts: Product[] = [
     id: "p-stencil-kids-3",
     name: "Mehndi Stencil — Kids (3 pieces)",
     slug: "mehndi-stencil-kids-3-pieces",
-    description: "A set of three kids' stencils with a mix of playful designs.",
+    description:
+      "A set of three kids' stencils with a mix of playful designs.",
     price: 100,
-    images: ["/products/real/stencils.jpeg"],
+    images: ["/products/real/real-p-stencil-kids-3.jpg"],
     categorySlug: "stencils",
     variantLabel: "Kids x3",
     stock: 35,
@@ -334,7 +297,7 @@ export const seedProducts: Product[] = [
     description:
       "A comprehensive stencil set covering the full hand and forearm for a complete bridal look, guided and even.",
     price: 400,
-    images: ["/products/real/stencils.jpeg"],
+    images: ["/products/real/real-p-stencil-bridal-full.jpg"],
     categorySlug: "stencils",
     variantLabel: "Full Hands",
     stock: 20,
@@ -345,9 +308,10 @@ export const seedProducts: Product[] = [
     id: "p-stencil-semi-bridal",
     name: "Semi Bridal Stencil",
     slug: "semi-bridal-stencil",
-    description: "A lighter bridal coverage stencil for engagements, showers and pre-wedding functions.",
+    description:
+      "A lighter bridal coverage stencil for engagements, showers and pre-wedding functions.",
     price: 250,
-    images: ["/products/real/stencils.jpeg"],
+    images: ["/products/real/real-p-stencil-semi-bridal.jpg"],
     categorySlug: "stencils",
     variantLabel: "Semi Bridal",
     stock: 25,
@@ -372,7 +336,8 @@ export const seedProducts: Product[] = [
     id: "p-wax-powder",
     name: "Wax Powder Hair Remover",
     slug: "wax-powder-hair-remover",
-    description: "A herbal wax powder formulated to gently remove unwanted hair at home.",
+    description:
+      "A herbal wax powder formulated to gently remove unwanted hair at home.",
     price: 120,
     images: ["/products/real/wax-powder-real.jpg"],
     categorySlug: "powders-hair-care",
@@ -383,7 +348,8 @@ export const seedProducts: Product[] = [
     id: "p-hair-powder-black",
     name: "Herbal Hair Colour Powder — Black",
     slug: "herbal-hair-powder-black",
-    description: "A herbal hair colour mix in Black, blended from traditional botanicals.",
+    description:
+      "A herbal hair colour mix in Black, blended from traditional botanicals.",
     price: 200,
     images: ["/products/real/hair-henna-black-real.jpg"],
     categorySlug: "powders-hair-care",
@@ -395,7 +361,8 @@ export const seedProducts: Product[] = [
     id: "p-hair-powder-brown",
     name: "Herbal Hair Colour Powder — Brown",
     slug: "herbal-hair-powder-brown",
-    description: "A herbal hair colour mix in Brown, blended from traditional botanicals.",
+    description:
+      "A herbal hair colour mix in Brown, blended from traditional botanicals.",
     price: 200,
     images: ["/products/real/hair-henna-brown-real.jpg"],
     categorySlug: "powders-hair-care",
@@ -407,7 +374,8 @@ export const seedProducts: Product[] = [
     id: "p-hair-powder-burgundy",
     name: "Herbal Hair Colour Powder — Burgundy",
     slug: "herbal-hair-powder-burgundy",
-    description: "A herbal hair colour mix in Burgundy, blended from traditional botanicals.",
+    description:
+      "A herbal hair colour mix in Burgundy, blended from traditional botanicals.",
     price: 200,
     images: ["/products/real/hair-henna-burgundy-real.jpg"],
     categorySlug: "powders-hair-care",
@@ -419,7 +387,8 @@ export const seedProducts: Product[] = [
     id: "p-hair-masala",
     name: "Hair Masala",
     slug: "hair-masala",
-    description: "A nourishing herbal hair masala blend to strengthen and condition from root to tip.",
+    description:
+      "A nourishing herbal hair masala blend to strengthen and condition from root to tip.",
     price: 150,
     images: ["/products/real/hair-masala.jpg"],
     categorySlug: "powders-hair-care",
@@ -427,12 +396,13 @@ export const seedProducts: Product[] = [
     isActive: true,
   },
 
-  // Lip Care (folded into Fragrance & Lifestyle in nav, but kept distinguishable via search)
+  // Lip Care
   {
     id: "p-lip-balm-strawberry",
     name: "Strawberry Lip Balm",
     slug: "strawberry-lip-balm",
-    description: "A softening lip balm with a light strawberry finish for everyday care.",
+    description:
+      "A softening lip balm with a light strawberry finish for everyday care.",
     price: 120,
     images: ["/products/real/lip-balms.jpeg"],
     categorySlug: "fragrance-lifestyle",
@@ -444,7 +414,8 @@ export const seedProducts: Product[] = [
     id: "p-lip-balm-beetroot",
     name: "Beetroot Lip Balm",
     slug: "beetroot-lip-balm",
-    description: "A nourishing lip balm tinted naturally with beetroot for soft, healthy-looking lips.",
+    description:
+      "A nourishing lip balm tinted naturally with beetroot for soft, healthy-looking lips.",
     price: 120,
     images: ["/products/real/lip-balms.jpeg"],
     categorySlug: "fragrance-lifestyle",
@@ -458,7 +429,8 @@ export const seedProducts: Product[] = [
     id: "p-royal-chai-masala",
     name: "Royal Chai Masala (25g)",
     slug: "royal-chai-masala-25g",
-    description: "A warming, aromatic chai masala blend to elevate your everyday cup.",
+    description:
+      "A warming, aromatic chai masala blend to elevate your everyday cup.",
     price: 100,
     images: ["/products/fragrance-lifestyle.svg"],
     categorySlug: "fragrance-lifestyle",
@@ -470,7 +442,8 @@ export const seedProducts: Product[] = [
     id: "p-oudh-sticks",
     name: "Oudh Sticks Box (100g)",
     slug: "oudh-sticks-box-100g",
-    description: "A box of fragrant oudh incense sticks for a warm, traditional atmosphere at home.",
+    description:
+      "A box of fragrant oudh incense sticks for a warm, traditional atmosphere at home.",
     price: 100,
     images: ["/products/fragrance-lifestyle.svg"],
     categorySlug: "fragrance-lifestyle",
@@ -484,7 +457,8 @@ export const seedProducts: Product[] = [
     id: "p-soap-multani-mitti",
     name: "Multani Mitti Soap",
     slug: "multani-mitti-soap",
-    description: "A handmade soap with Multani Mitti (Fuller's Earth) to gently cleanse and refresh skin.",
+    description:
+      "A handmade soap with Multani Mitti (Fuller's Earth) to gently cleanse and refresh skin.",
     price: 200,
     images: ["/products/real/multani-mitti-soap-real.jpg"],
     categorySlug: "skincare",
@@ -496,7 +470,8 @@ export const seedProducts: Product[] = [
     id: "p-soap-goat-milk",
     name: "Goat Milk Soap",
     slug: "goat-milk-soap",
-    description: "A creamy, moisturising handmade soap enriched with goat milk.",
+    description:
+      "A creamy, moisturising handmade soap enriched with goat milk.",
     price: 200,
     images: ["/products/real/goat-milk-soap-real.png"],
     categorySlug: "skincare",
@@ -507,7 +482,8 @@ export const seedProducts: Product[] = [
     id: "p-soap-anti-acne",
     name: "Anti-Acne Haldi Chandan Soap",
     slug: "anti-acne-haldi-chandan-soap",
-    description: "A turmeric and sandalwood soap formulated for acne-prone skin.",
+    description:
+      "A turmeric and sandalwood soap formulated for acne-prone skin.",
     price: 200,
     images: ["/products/real/haldi-chandan-soap-real.jpg"],
     categorySlug: "skincare",
@@ -518,7 +494,8 @@ export const seedProducts: Product[] = [
     id: "p-soap-ubtan",
     name: "Ubtan Soap",
     slug: "ubtan-soap",
-    description: "A handmade soap based on our traditional ubtan blend for a natural glow.",
+    description:
+      "A handmade soap based on our traditional ubtan blend for a natural glow.",
     price: 200,
     images: ["/products/skincare.svg"],
     categorySlug: "skincare",
@@ -529,7 +506,8 @@ export const seedProducts: Product[] = [
     id: "p-soap-skin-lightening",
     name: "Skin Lightening Soap",
     slug: "skin-lightening-soap",
-    description: "A gentle handmade soap formulated to even out tone with regular use.",
+    description:
+      "A gentle handmade soap formulated to even out tone with regular use.",
     price: 200,
     images: ["/products/real/skin-lightening-soap-real.jpg"],
     categorySlug: "skincare",
@@ -540,7 +518,8 @@ export const seedProducts: Product[] = [
     id: "p-soap-charcoal",
     name: "Charcoal Soap",
     slug: "charcoal-soap",
-    description: "An activated charcoal soap to draw out impurities and deep-clean skin.",
+    description:
+      "An activated charcoal soap to draw out impurities and deep-clean skin.",
     price: 200,
     images: ["/products/real/charcoal-soap-real.jpg"],
     categorySlug: "skincare",
@@ -551,7 +530,8 @@ export const seedProducts: Product[] = [
     id: "p-soap-menthol",
     name: "Menthol Soap",
     slug: "menthol-soap",
-    description: "A cooling menthol-infused soap for a refreshing everyday wash.",
+    description:
+      "A cooling menthol-infused soap for a refreshing everyday wash.",
     price: 200,
     images: ["/products/real/menthol-soap-real.jpg"],
     categorySlug: "skincare",
